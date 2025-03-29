@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "editorconfig.editorconfig",
+        "tomblind.local-lua-debugger-vscode",
+        "sumneko.lua"
+    ]
+}
