@@ -2,7 +2,7 @@ local PATH = (...):gsub('%.init$', '')
 
 local Sugar = {
     _VERSION     = "0.0",
-    _DESCRIPTION = "GUI Framework for LÖVE",
+    _DESCRIPTION = "A sweet GUI Framework for LÖVE",
     _LICENCE     = [[
         MIT License
 
@@ -27,5 +27,11 @@ local Sugar = {
         SOFTWARE.
    ]]
 }
+
+function Sugar.Component(buildFunction)
+    return function (props)
+        return Node:new(props, buildFunction)
+    end
+end
 
 return Sugar

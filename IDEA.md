@@ -143,7 +143,7 @@ But we only need to recompute layouts if the Element changed size and we only ne
 
 When we first create an Element, the Element defines a set of Constraints for itself.
 
-The Constraints basically specify the Element's minWidth, minHeight, maxWidth, maxSize, xGrowthFactor and yGrowthFactor and an optional aspectRatio.
+The Constraints basically specify the Element's minWidth, minHeight, maxWidth, maxHeight, growthFactor and an optional aspectRatio.
 
 These Constraints come from the Element's props, for example:
 
@@ -164,8 +164,7 @@ The constraints for this Element are:
     minHeight = 500,
     maxHeight = 500,
     aspectRatio = nil,
-    xGrowthFactor = 1,
-    yGrowthFactor = 1,
+    growthFactor = 1,
 }
 ```
 

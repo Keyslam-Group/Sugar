@@ -1,2 +1,3 @@
 # Sugar
-GUI framework for LÖVE
+
+A sweet GUI framework for LÖVE
