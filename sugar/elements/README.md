@@ -20,7 +20,9 @@ Whenever an Element is sized it stores the `parentElement` as a property.
 
 ### sizeConstraints
 
-Size constraints for this element. Required fields:
+Size constraints for this element.
+
+Required fields:
 
 ```lua
 {

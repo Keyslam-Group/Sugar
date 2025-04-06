@@ -10,17 +10,31 @@ function Node:new(props, buildFunction)
         local buildResult = buildFunction(props)
 
         -- If buildResult is a Node store the rootElement, if it's nil or Element, store the root as is
-        local newRootElement = buildResult and buildResult.rootElement or buildResult
+        local newRootElement = t.isNode(buildResult) and buildResult.rootElement or buildResult
 
-        this.rootElement.parentElement:replaceChild(this.rootElement, newRootElement)
-        this.rootElement:destroy()
+        if this.rootElement then
+            if this.rootElement.parentElement then
+                this.rootElement.parentElement:replaceChild(this.rootElement, newRootElement)
+            end
+
+            this.rootElement:destroy()
+        end
+
         this.rootElement = newRootElement
     end)
 end
 
 function Node:destroy()
     self.effect:destroy()
-    self.rootElement.parentElement:removeChild(self.rootElement)
+    
+    if self.rootElement then
+        if self.rootElement.parentElement then
+            self.rootElement.parentElement:removeChild(self.rootElement)
+        end
+
+        self.rootElement:destroy()
+    end
+    
     self.rootElement = nil
 end
 
